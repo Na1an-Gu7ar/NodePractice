@@ -10,17 +10,19 @@
 </head>
 
 <body>
-    <div class="w-screen h-screen bg-zinc-800 text-white flex flex-col gap-2">
-        <h1 class="text-3xl tracking-tighter mb-3">Add Users</h1>
-        <a href="/login" class="bg-blue-500 rounded-lg px-5 py-2 w-20">Login</a>
-        <form action="/createUser" method="post">
-            <input name="name" type="text" class="px-5 py-2 border-2 border-zinc-800 outline-none bg-transparent"
+    <div class="w-screen h-screen bg-zinc-800 text-white flex flex-col gap-7 justify-center items-center">
+        <h1 class="text-3xl tracking-tighter">Add Users</h1>
+        <form name="myForm" action="/read" method="post" class="flex flex-col w-56 h-64 gap-5 items-center justify-center">
+            <input name="name" type="text" class="px-5 py-2 border-2 border-white rounded-lg outline-none bg-transparent"
             required placeholder="Name">
-            <input name="email" type="email" class="px-5 py-2 border-2 border-zinc-800 outline-none bg-transparent"
+            <input name="email" type="email" class="px-5 py-2 border-2 border-white rounded-lg outline-none bg-transparent"
             required placeholder="Email">
-            <input name="password" type="password" class="px-5 py-2 border-2 border-zinc-800 outline-none bg-transparent"
+            <input name="password" type="password" class="px-5 py-2 border-2 border-white rounded-lg outline-none bg-transparent"
             required placeholder="Password">
-            <input type="submit" class="px-5 py-2 bg-blue-500 rounded-lg" placeholder="Add User">
+            <div class="w-56 gap-3 h-10 flex flex-row">
+                <input type="submit" class="px-5 py-2 bg-blue-500 rounded-lg" value="SignUp">
+                <a href="/login" class="bg-blue-500 rounded-lg px-5 py-2 w-20">Login</a>
+            </div>
         </form>
     </div>
 </body>
