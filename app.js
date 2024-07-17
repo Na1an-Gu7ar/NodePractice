@@ -34,7 +34,8 @@ app.post("/create", async (req, res) => {
         company: req.body.company,
         price: req.body.price
     })
-    res.send(createdProduct)
+    // res.send(createdProduct)
+    res.redirect("/read")
 })
 
 app.post("/createUser", (req, res) => {
@@ -48,7 +49,6 @@ app.post("/createUser", (req, res) => {
 
             let token = jwt.sign({ email: req.body.email, userid: user._id }, `${process.env.SECRET_KEY}`)
             res.cookie("token", token)
-            // res.send(createdUser)
             res.render('read')
         })
     })
@@ -61,21 +61,16 @@ app.get("/login", (req, res) => {
 app.post("/login", async (req, res) => {
     let user = await userModel.findOne({ email: req.body.email })
     if (!user) {
-        // res.send("Something went wrong")
-        alert("Something Went wrong")
-        // res.flash("success", 'Something went wrong')
+        res.send("Something Went wrong")
     }
     bcrypt.compare(req.body.password, user.password, function (err, result) {
         if (result) {
             let token = jwt.sign({ email: user.email }, `${process.env.SECRET_KEY}`)
             res.cookie("token", token)
             res.redirect("/read")
-            // res.send("Login successfull")
-            // res.flash("success", 'Something went wrong')
         }
         else {
-            // res.send("Something is wrong")
-            alert("Something Went wrong")
+            res.send("Something Went wrong")
         }
     })
 })
@@ -83,7 +78,6 @@ app.post("/login", async (req, res) => {
 app.get("/logout", (req, res) => {
     res.cookie("token", "")
     res.render("createUser")
-    res.flash("success", 'Logged Out')
 })
 
 function isLoggedIn(req, res, next) {

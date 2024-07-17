@@ -10,15 +10,19 @@
 <body>
     <div class="w-screen h-screen bg-zinc-900 p-10 text-white flex flex-col gap-3">
         <h1 class="text-3xl tracking-tighter mb-3">All Product</h1>
-        <a href="/createProduct" class="bg-blue-500 rounded-lg px-5 py-2 w-24">Create Product</a>
-        <div class="products flex gap-3 flex-wrap">
-            <% product.forEach(function(p){ %>
-                <div class="product w-44 p-4 bg-zinc-800 rounded-lg text-center">
-                    <h3 class="text-xl tracking-tighter"><%= p.name %></h3>
-                    <h4 class="tracking-tighter">Company: <%= p.company %></h3>
-                    <h5 class="tracking-tighter">Price: <%= p.price %></h3>
-                </div>
-            <% }) %> 
+        <a href="/logout" class="bg-blue-500 rounded-lg px-4 py-2 w-20 right-10 absolute">Logout</a>
+        <hr>
+        <div class="flex flex-col h-52 mt-10 gap-5">
+            <a href="/createProduct" class="bg-blue-500 rounded-lg px-4 py-2 w-32">Add Product</a>
+            <div class="products flex gap-3 flex-wrap">
+                <% product.forEach(function(p){ %>
+                    <div class="product w-44 p-4 bg-zinc-800 rounded-lg text-center">
+                        <h3 class="text-xl tracking-tighter"><%= p.name %></h3>
+                        <h4 class="tracking-tighter">Company: <%= p.company %></h3>
+                        <h5 class="tracking-tighter">Price: <%= p.price %></h3>
+                    </div>
+                <% }) %> 
+            </div>
         </div>
     </div>
 </body>
