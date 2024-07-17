@@ -1,5 +1,12 @@
 const express = require('express')
 const app = express()
+const cors = require('cors')
+const corsConfig = {
+    origin: '*',
+    credential: true,
+    methods: ["GET, POST", "PUT", "DELETE"],
+}
+app.use(cors(corsConfig))
 const path = require('path')
 const productModel = require('./models/product')
 const userModel = require('./models/user')
