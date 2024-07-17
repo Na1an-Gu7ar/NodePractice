@@ -6,6 +6,7 @@ const corsConfig = {
     credential: true,
     methods: ["GET, POST", "PUT", "DELETE"],
 }
+app.options("", corsConfig)
 app.use(cors(corsConfig))
 const path = require('path')
 const productModel = require('./models/product')
