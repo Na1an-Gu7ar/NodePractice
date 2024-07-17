@@ -34,7 +34,6 @@ app.post("/create", async (req, res) => {
         company: req.body.company,
         price: req.body.price
     })
-    // res.send(createdProduct)
     res.redirect("/read")
 })
 
