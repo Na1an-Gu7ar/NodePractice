@@ -8,6 +8,7 @@ const corsConfig = {
 }
 app.options("", cors(corsConfig))
 app.use(cors(corsConfig))
+require("dotenv").config()
 const path = require('path')
 const productModel = require('./models/product')
 const userModel = require('./models/user')
@@ -97,4 +98,4 @@ function isLoggedIn(req, res, next) {
     }
 }
 
-app.listen(3000)
+app.listen(process.env.PORT)
