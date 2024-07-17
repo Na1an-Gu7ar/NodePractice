@@ -9,11 +9,7 @@
     "routes": [
         {
             "src": "/",
-            "dest": "/"
-        },
-        {
-            "src": "/createUser",
-            "dest": "/"
+            "dest": "app.js"
         }
     ]
 }
